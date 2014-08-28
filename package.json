@@ -1,6 +1,6 @@
 {
   "name": "common-log",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Common logger",
   "main": "index.js",
   "scripts": {
@@ -29,14 +29,12 @@
   },
   "homepage": "https://github.com/xpepermint/common-log",
   "devDependencies": {
-    "jasmine-node": "^2.0.0"
   },
   "dependencies": {
     "cli-color": "^0.3.2",
     "console-highlight": "^0.1.0",
     "lodash": "^2.4.1",
     "moment": "^2.8.2",
-    "strip-ansi": "^2.0.0",
     "winston": "git+https://github.com/slezica/winston.git"
   }
 }

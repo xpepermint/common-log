@@ -5,7 +5,6 @@
  */
 
 var _ = require('lodash');
-var cstrip = require('strip-ansi');
 var winston = require('winston');
 var clc = require('cli-color');
 var highlight = require('console-highlight');
