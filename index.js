@@ -61,8 +61,8 @@ module.exports.transports = {
           var ident = '['+parts.shift()+']';
           var message = highlight(parts.join(' '), {
             theme: meta.theme || 'railscasts',
-            language: meta.language
-          }).replace(/\n|\r/g, '').replace(/\s{2,}/g, ' ');
+            language: meta.language || 'bash'
+          }).replace(/\n|\r/g, ' ').replace(/\s{2,}/g, ' ');
           var timestamp = '['+moment().format('YYYY/MM/DD hh:mm:ss')+']';
           var level = '['+lev+']';
           return clc.xterm(8)(timestamp)+clc[colors[lev]](level)+clc.cyan(ident)+' '+message;
