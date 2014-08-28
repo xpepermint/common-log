@@ -10,8 +10,6 @@ Simple `logger` based on [winston](https://github.com/flatiron/winston) multi-tr
 
 Install the [npm](https://www.npmjs.org/package/common-log) package.
 
-
-
 ```
 npm install common-log --save
 ```
