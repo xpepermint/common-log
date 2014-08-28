@@ -4,9 +4,13 @@
 
 Simple `logger` based on [winston](https://github.com/flatiron/winston) multi-transport async logging library for NodeJS.
 
+![YoomJS](https://raw.githubusercontent.com/xpepermint/common-log/master/screenshot.png)
+
 ## Installation
 
 Install the [npm](https://www.npmjs.org/package/common-log) package.
+
+
 
 ```
 npm install common-log --save
@@ -24,8 +28,10 @@ logger.instance.add(logger.transports.console());
 logger.instance.add(logger.transports.file());
 
 // using logger
-logger.log('info', 'ident1', 'ident2', 'message');
-// -> [debug][2014/08/28 03:28:53][ident1:ident2] mesage
+logger.log('debug', 'ident1', 'ident2', 'message'); // -> [2014/08/28 03:28:53][debug][ident1:ident2] mesage
+logger.log('info', ...);
+logger.log('warn', ...);
+logger.log('error', ...);
 
 // installing custom logger
 var orm = require('orm-model');

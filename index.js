@@ -63,7 +63,7 @@ module.exports.transports = {
           var message = highlight(parts.join(' '), { theme: 'railscasts' }).replace(/\n/g, '').replace(/\s{2,}/g, ' ');
           var timestamp = '['+moment().format('YYYY/MM/DD hh:mm:ss')+']';
           var level = '['+lev+']';
-          return clc[colors[lev]](level+timestamp)+clc.cyan(ident)+' '+message;
+          return clc.xterm(8)(timestamp)+clc[colors[lev]](level)+clc.cyan(ident)+' '+message;
         }
       });
     };
@@ -94,7 +94,7 @@ module.exports.transports = {
           var message = parts.join(' ');
           var timestamp = '['+moment().format('YYYY/MM/DD hh:mm:ss')+']';
           var level = '['+lev+']';
-          return level+timestamp+ident+' '+message;
+          return timestamp+level+ident+' '+message;
         }
       }, options));
     };
