@@ -1,0 +1,42 @@
+{
+  "name": "common-log",
+  "version": "0.0.1",
+  "description": "Common logger",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --harmony ./node_modules/jasmine-node/bin/jasmine-node ./spec --verbose"
+  },
+  "engines": {
+    "node": ">= 0.11.9"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/xpepermint/common-log.git"
+  },
+  "keywords": [
+    "log",
+    "logger",
+    "logging",
+    "winston",
+    "color",
+    "common",
+    "highlight"
+  ],
+  "author": "xpepermint",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xpepermint/common-log/issues"
+  },
+  "homepage": "https://github.com/xpepermint/common-log",
+  "devDependencies": {
+    "jasmine-node": "^2.0.0"
+  },
+  "dependencies": {
+    "cli-color": "^0.3.2",
+    "console-highlight": "^0.1.0",
+    "lodash": "^2.4.1",
+    "moment": "^2.8.2",
+    "strip-ansi": "^2.0.0",
+    "winston": "git+https://github.com/slezica/winston.git"
+  }
+}
