@@ -59,7 +59,10 @@ module.exports.transports = {
 
           var parts = msg.split(' ');
           var ident = '['+parts.shift()+']';
-          var message = highlight(parts.join(' '), { theme: 'railscasts' }).replace(/\n/g, '').replace(/\s{2,}/g, ' ');
+          var message = highlight(parts.join(' '), {
+            theme: meta.theme || 'railscasts',
+            language: meta.language
+          }).replace(/\n|\r/g, '').replace(/\s{2,}/g, ' ');
           var timestamp = '['+moment().format('YYYY/MM/DD hh:mm:ss')+']';
           var level = '['+lev+']';
           return clc.xterm(8)(timestamp)+clc[colors[lev]](level)+clc.cyan(ident)+' '+message;
@@ -104,18 +107,22 @@ module.exports.transports = {
 /**
  * Log a message.
  *
- * @param(first) {string} level
- * @param(*) {string} ident
- * @param(last) {string} message
+ * @param(first) {string|object} level
+ * @param {string+} ident
+ * @param {string} message
+ * @param {object} meta
  * @return {function}
  */
 
 module.exports.log = function() {
   var args = Array.prototype.slice.call(arguments);
-  var level = args.shift();
+
+  var meta = args.shift();
+  if (typeof meta == 'string') meta = { level: meta };
   var message = args.pop();
+
   var ident = args.join(':');
-  module.exports.instance[level](ident+' '+message);
+  module.exports.instance.log(meta.level, ident+' '+message, meta);
 };
 
 /**
@@ -125,8 +132,8 @@ module.exports.log = function() {
  * @return {function}
  */
 
-module.exports.fn = function(level) {
+module.exports.fn = function(meta) {
   return function() {
-    module.exports.log.apply(null, [level].concat(Array.prototype.slice.call(arguments)));
+    module.exports.log.apply(null, [meta].concat(Array.prototype.slice.call(arguments)));
   };
 };

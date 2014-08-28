@@ -31,6 +31,13 @@ logger.log('info', ...);
 logger.log('warn', ...);
 logger.log('error', ...);
 
+// using logger with options
+logger.log({
+  level: 'debug',
+  theme: 'railscasts', // color scheme
+  language: 'sql' // colorizing style
+}, ...);
+
 // installing custom logger
 var orm = require('orm-model');
 orm.connect({ logger: logger.fn('debug') });
