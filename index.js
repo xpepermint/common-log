@@ -132,8 +132,14 @@ module.exports.log = function() {
  * @return {function}
  */
 
-module.exports.fn = function(meta) {
+module.exports.fn = function(options) {
+  // default arguments
+  var defaults = [];
+  if (options.prepend) defaults = [options.prepend].concat(defaults);
+  defaults = [options].concat(defaults);
+  if (options.append) defaults = [options.append].concat(defaults);
+  // log function
   return function() {
-    module.exports.log.apply(null, [meta].concat(Array.prototype.slice.call(arguments)));
+    module.exports.log.apply(null, defaults.concat(Array.prototype.slice.call(arguments)));
   };
 };

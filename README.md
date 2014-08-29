@@ -35,7 +35,9 @@ logger.log('error', ...);
 logger.log({
   level: 'debug',
   theme: 'railscasts', // color scheme
-  language: 'sql' // colorizing style
+  language: 'sql', // colorizing style
+  prepend: 'my-app', // add identifier at start
+  append: 'my-action' // add identifier at end
 }, ...);
 
 // installing custom logger
