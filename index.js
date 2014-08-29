@@ -82,7 +82,7 @@ module.exports.transports = {
     return function() {
       return new (winston.transports.File)(_.merge({
         level: level,
-        filename: 'logs/'+env+'.log',
+        filename: 'log/'+env+'.log',
         handleExceptions: true,
         maxsize: 1048576 * 10, // 10MB
         maxFiles: 1,
